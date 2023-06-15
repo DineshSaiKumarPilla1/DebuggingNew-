@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title>Debugging Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <h1>Debugging Example</h1>
+    <label for="num1">1st Number</label>
+    <input placeholder="1st Number" id="num1">
+    <label for="num2">2nd Number</label>
+    <input placeholder="2nd Number" id="num2">
+    <button>Add Number 1 and Number 2</button>
+    <p></p>
+    <script>
+        function onClick() {
+            if (inputsAreEmpty()) {
+              label.textContent = 'Error: one or both inputs are empty.';
+              return;
+            }
+            updateLabel();
+          }
+          function inputsAreEmpty() {
+            if (getNumber1() === '' || getNumber2() === '') {
+              return true;
+            } else {
+              return false;
+            }
+          }
+          function updateLabel() {
+            var addend1 = getNumber1();
+            var addend2 = getNumber2();
+            var sum = addend1 + addend2;
+            label.textContent = addend1 + ' + ' + addend2 + ' = ' + sum;
+          }
+          function getNumber1() {
+            return inputs[0].value;
+          }
+          function getNumber2() {
+            return inputs[1].value;
+          }
+          var inputs = document.querySelectorAll('input');
+          var label = document.querySelector('p');
+          var button = document.querySelector('button');
+          button.addEventListener('click', onClick);
+    </script>
+  </body>
+</html>
